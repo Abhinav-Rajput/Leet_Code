@@ -10,6 +10,7 @@
 # traffic where (user_id,activity_date) in (select user_id,first_login_date from t1 where first_login_date>'2019-03-30' )and activity='login'  and
 # activity_date between '2019-03-30' and '2019-06-30'
 # group by 1
+#order by 1
 
 
 
