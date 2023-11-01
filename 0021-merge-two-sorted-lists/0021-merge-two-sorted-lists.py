@@ -5,6 +5,34 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+
+        NewList = ListNode()
+
+        def MergeHelper(NewList, node1, node2):
+
+            if node1 == None and node2 == None:
+                return
+            
+            if node1 ==None and node2 !=None:
+                return node2
+
+            if node1 !=None and node2 ==None:
+                return node1
+
+
+            if node1.val <= node2.val:
+                NewList = node1
+                NewList.next = MergeHelper(NewList, node1.next, node2)
+            
+            if node1.val > node2.val:
+                NewList = node2
+                NewList.next = MergeHelper(NewList, node1, node2.next)
+            return NewList
+
+        return MergeHelper(NewList, list1, list2)
+
+
+
         l1=list1
         l2= list2 
         newlist = ListNode(0)
