@@ -1,7 +1,24 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
 
+        result = []
 
+        def helper(slate,A):
+            if len(A)==0:
+                return result.append(slate)
+            else:
+                for i in range(len(A)):
+                    helper(slate+[A[i]],A[:i]+A[i+1:])
+            # pass
+        
+
+        helper([],nums)
+
+        return result
+
+
+
+"""
         result = []
 
         def helper(A,i):
@@ -17,5 +34,7 @@ class Solution:
         helper(nums,0)
 
         return result
+
+"""        
 
         
